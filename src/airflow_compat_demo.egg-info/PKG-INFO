@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: airflow-compat-demo
+Version: 0.1.0
+Summary: Minimal demo of Airflow-like VersionChange + DefaultResolver with SDK/Core compatibility
+Author: Kyungjun Lee
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# airflow-compat-demo
+
+A tiny, **uv**-friendly Python package that demonstrates:
+
+- Versioned contract compatibility between **Core (server)** and **SDK (client)** using a `VersionChange` registry
+- A **DefaultResolver** that merges default values with the following precedence:
+
+1. Schema defaults (lowest)
+2. Client defaults
+3. DAG `default_args`
+4. Partial arguments (e.g., MappedOperator shared values)
+5. Task explicit values (highest)
+
+## Quickstart (with uv)
+
+```bash
+# Inside this folder
+uv venv
+uv pip install -e .
+airflow-compat-demo  # run the CLI demo
+```
+
+## Run Tests
+
+```bash
+uv pip install pytest
+pytest
+```
+
+## What it shows
+
+- Server at version **1.1** adds a new field `dag_version_id`
+- Client at version **1.0** does not know that field
+- A `VersionChange` rule automatically **removes** that field when serving a 1.0 client
+- Defaults are merged with the precedence listed above

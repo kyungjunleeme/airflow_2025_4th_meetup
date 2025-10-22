@@ -1,0 +1,2 @@
+[console_scripts]
+airflow-compat-demo = airflow_compat_demo.cli:main

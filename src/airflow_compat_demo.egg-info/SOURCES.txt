@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+src/airflow_compat_demo/__init__.py
+src/airflow_compat_demo/cli.py
+src/airflow_compat_demo/defaults.py
+src/airflow_compat_demo/models.py
+src/airflow_compat_demo/versioning.py
+src/airflow_compat_demo.egg-info/PKG-INFO
+src/airflow_compat_demo.egg-info/SOURCES.txt
+src/airflow_compat_demo.egg-info/dependency_links.txt
+src/airflow_compat_demo.egg-info/entry_points.txt
+src/airflow_compat_demo.egg-info/top_level.txt
+tests/test_defaults.py
+tests/test_versioning.py
