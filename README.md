@@ -167,11 +167,11 @@ class DefaultResolver:
 
 | 우선순위 | 계층 | 설명 | 예시 |
 |-----------|------|------|------|
-| 1️⃣ | Schema defaults | Airflow 내장 기본값 | `{"retries": 1, "owner": "airflow"}` |
-| 2️⃣ | Client defaults | SDK 기본값 | `{"owner": "sdk_client"}` |
+| 5️⃣ | Schema defaults | Airflow 내장 기본값 | `{"retries": 1, "owner": "airflow"}` |
+| 4️⃣ | Client defaults | SDK 기본값 | `{"owner": "sdk_client"}` |
 | 3️⃣ | DAG defaults | DAG-level default_args | `{"retries": 2}` |
-| 4️⃣ | Partial args | 공유 연산자 설정 | `{"owner": "dag_owner"}` |
-| 5️⃣ | Task explicit values | 명시적 Task 값 (최우선) | `task_id`, `retries`, `owner` 등 |
+| 2️⃣ | Partial args | 공유 연산자 설정 | `{"owner": "dag_owner"}` |
+| 1️⃣ | Task explicit values | 명시적 Task 값 (최우선) | `task_id`, `retries`, `owner` 등 |
 
 ---
 
