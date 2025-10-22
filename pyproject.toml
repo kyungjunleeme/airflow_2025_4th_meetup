@@ -1,0 +1,23 @@
+[project]
+name = "airflow-compat-demo"
+version = "0.1.0"
+description = "Minimal demo of Airflow-like VersionChange + DefaultResolver with SDK/Core compatibility"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Kyungjun Lee"}]
+dependencies = []
+
+[project.scripts]
+airflow-compat-demo = "airflow_compat_demo.cli:main"
+
+[tool.uv]
+# uv-specific settings can be added here if needed
+
+[tool.pytest.ini_options]
+addopts = "-q"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "ruff>=0.14.0",
+]

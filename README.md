@@ -1,2 +1,35 @@
-# airflow_2025_4th_meetup
-serialization in airflow
+# airflow-compat-demo
+
+A tiny, **uv**-friendly Python package that demonstrates:
+
+- Versioned contract compatibility between **Core (server)** and **SDK (client)** using a `VersionChange` registry
+- A **DefaultResolver** that merges default values with the following precedence:
+
+1. Schema defaults (lowest)
+2. Client defaults
+3. DAG `default_args`
+4. Partial arguments (e.g., MappedOperator shared values)
+5. Task explicit values (highest)
+
+## Quickstart (with uv)
+
+```bash
+# Inside this folder
+uv venv
+uv pip install -e .
+airflow-compat-demo  # run the CLI demo
+```
+
+## Run Tests
+
+```bash
+uv pip install pytest
+pytest
+```
+
+## What it shows
+
+- Server at version **1.1** adds a new field `dag_version_id`
+- Client at version **1.0** does not know that field
+- A `VersionChange` rule automatically **removes** that field when serving a 1.0 client
+- Defaults are merged with the precedence listed above
